@@ -65,7 +65,10 @@ npx tailwindcss -i ./Styles/app.css -o ./wwwroot/app.css --minify
 
 # App
 
-ref: https://www.binarcode.com/blog/building-animated-draggable-interfaces-with-vuejs-and-tailwind
+references: 
+1. drag n drop: https://www.binarcode.com/blog/building-animated-draggable-interfaces-with-vuejs-and-tailwind
+2. js file hash: https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API/Non-cryptographic_uses_of_subtle_crypto#hashing_a_file
+
 
 ## Run project
 ```shell
