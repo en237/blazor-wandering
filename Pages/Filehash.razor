@@ -1,7 +1,29 @@
 @page "/Hash"
+@using System.Security.Cryptography
 
-<FileInput />
+<div class="flex flex-col">
+    <h1>File hash page</h1>
+
+    <span>Fichier</span>
+    <InputFile OnChange="@LoadFile"  />
+    
+    <pre>
+@message
+</pre>
+</div>
 
 @code {
+    private string message = string.Empty;
+    
+    private async Task LoadFile(InputFileChangeEventArgs e)
+    {
+        message = "";
+        message = $"File count={e.FileCount}";
+        message += $"\nName: {e.File.Name}\nSize: {e.File.Size}\nContentType: {e.File.ContentType}\nLastModified: {e.File.LastModified}\n";
 
+        using var hash = SHA256.Create();
+        await using var stream = e.File.OpenReadStream(1100000000L);
+        var hashValue = await hash.ComputeHashAsync(stream);
+        message += $"\nHash: {BitConverter.ToString(hashValue).Replace("-","")}";
+    }
 }
