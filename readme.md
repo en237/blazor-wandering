@@ -66,3 +66,8 @@ npx tailwindcss -i ./Styles/app.css -o ./wwwroot/app.css --minify
 # App
 
 ref: https://www.binarcode.com/blog/building-animated-draggable-interfaces-with-vuejs-and-tailwind
+
+## Run project
+```shell
+dotnet watch --project .
+```
